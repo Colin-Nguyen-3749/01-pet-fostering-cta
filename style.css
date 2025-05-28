@@ -6,13 +6,34 @@ body {
   background-color: #e6f7fa; /* light blue background for the page */
 }
 
-/* Style for the CTA banner */
+/* Style for the CTA banner with background image and overlay */
 .cta-banner {
-  background-color: #1e90a3; /* teal-blue background */
-  color: #ffffff; /* white text for contrast */
+  background-image: url('img/cta-bg.jpg');
+  background-size: cover; /* cover the whole banner */
+  background-position: center;
+  color: #ffffff;
   text-align: center;
   padding: 60px 20px; /* tall banner with space around content */
   margin: 0;
+  position: relative;
+}
+
+/* Light overlay to keep the image subtle and text readable */
+.cta-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 144, 163, 0.7); /* semi-transparent teal overlay */
+  z-index: 0;
+}
+
+/* Make sure content is above the overlay */
+.cta-banner > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Main heading style */
@@ -49,4 +70,84 @@ body {
 /* Button hover effect */
 .cta-button:hover {
   background-color: #23b6ae; /* slightly darker teal on hover */
+}
+
+/* Simple site header style */
+.site-header {
+  background-color: #15697a; /* darker teal for contrast */
+  color: #ffffff;
+  text-align: center;
+  padding: 18px 0;
+  margin: 0;
+}
+
+/* Site name style */
+.site-header h2 {
+  font-size: 1.7em;
+  margin: 0;
+  letter-spacing: 2px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: bold;
+}
+
+/* Info section with two columns */
+.info-section {
+  max-width: 800px;
+  margin: 40px auto 0 auto; /* center on page with space above */
+  background-color: #f0fbfd; /* very light blue for contrast */
+  border-radius: 8px;
+  padding: 24px 16px;
+  display: table; /* use table layout for simple columns */
+  width: 100%;
+}
+
+/* Image column */
+.info-image {
+  display: table-cell;
+  width: 50%;
+  vertical-align: middle;
+  padding-right: 16px;
+}
+
+.info-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px; /* more rounded corners for the image */
+}
+
+/* Text column */
+.info-text {
+  display: table-cell;
+  width: 50%;
+  vertical-align: middle;
+  padding-left: 16px;
+}
+
+.info-text h3 {
+  color: #15697a;
+  margin-top: 0;
+  font-size: 1.4em;
+}
+
+.info-text p {
+  font-size: 1.1em;
+  color: #1e3a4c;
+  margin-bottom: 0;
+}
+
+/* Responsive: stack columns on small screens */
+@media (max-width: 600px) {
+  .info-section {
+    display: block;
+    padding: 12px 4px;
+  }
+  .info-image,
+  .info-text {
+    display: block;
+    width: 100%;
+    padding: 0;
+  }
+  .info-image {
+    margin-bottom: 16px;
+  }
 }
